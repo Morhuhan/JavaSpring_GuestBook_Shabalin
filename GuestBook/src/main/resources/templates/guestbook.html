@@ -16,6 +16,9 @@
             <span th:text="${guest.feedback}"></span>
         </span>
     </li>
+  
+    <input type="button" value="AJAX" onclick="callAjax()"></input>
+  
 </ul>
 
 
@@ -54,6 +57,19 @@
         document.getElementById("myModal").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     }
+
+    function callAjax() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var jsonObject = JSON.parse(this.responseText);
+                alert(jsonObject[0].name);
+            }
+        };
+        xhttp.open("GET", "./all-guests" , true);
+        xhttp.send();
+    }
+
 </script>
 </body>
 
