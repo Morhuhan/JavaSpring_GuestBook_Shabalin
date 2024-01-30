@@ -16,8 +16,9 @@
             <span th:text="${guest.feedback}"></span>
         </span>
     </li>
-
+  
     <input type="button" value="AJAX" onclick="callAjax()"></input>
+  
 </ul>
 
 
@@ -68,6 +69,7 @@
         xhttp.open("GET", "./all-guests" , true);
         xhttp.send();
     }
+
 </script>
 </body>
 
